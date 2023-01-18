@@ -5,7 +5,7 @@ using namespace std;
 /*
     -*- coding: utf-8 -*-
     @Author  : wheat
-    @Time    : 2023/01/18 10:46
+    @Time    : 2023/01/18 15:13
 */
 
 /**
@@ -66,31 +66,7 @@ using namespace std;
     # 数学 max(x, y);min(x, y); abs(x); ceil(x) floor(x) abs(x)
  */
 
-class Solution {
-public:
-    bool isValid(string s) {
-        int n = s.size();
-        if (n % 2 == 1) {
-            return false;
-        }
+int main() {
 
-        unordered_map<char, char> pairs = {
-                {')', '('},
-                {']', '['},
-                {'}', '{'}
-        };
-
-        stack<char> stk;
-        for (char ch: s) {
-            if (pairs.count(ch)) {
-                if (stk.empty() || stk.top() != pairs[ch]) {
-                    return false;
-                }
-                stk.pop();
-            } else {
-                stk.push(ch);
-            }
-        }
-        return stk.empty();
-    }
-};
+    return 0;
+}
