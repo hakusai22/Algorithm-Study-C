@@ -8,6 +8,10 @@ using namespace std;
     @Time    : 2023/01/18 10:46
 */
 
+int main() {
+    std::cout << "Hello, World!" << std::endl;
+    return 0;
+}
 
 class Solution {
 public:
