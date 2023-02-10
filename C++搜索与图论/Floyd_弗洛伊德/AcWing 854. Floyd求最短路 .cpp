@@ -73,34 +73,30 @@ int n, m, k, x, y, z;
 int d[N][N];
 
 void floyd() {
-    for(int k = 1; k <= n; k++)
-        for(int i = 1; i <= n; i++)
-            for(int j = 1; j <= n; j++)
+    for (int k = 1; k <= n; k++)
+        for (int i = 1; i <= n; i++)
+            for (int j = 1; j <= n; j++)
                 d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
 }
 
 int main() {
     cin >> n >> m >> k;
-    for(int i = 1; i <= n; i++)
-        for(int j = 1; j <= n; j++)
-            if(i == j) d[i][j] = 0;
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= n; j++)
+            if (i == j) d[i][j] = 0;
             else d[i][j] = INF;
-    while(m--) {
+    while (m--) {
         cin >> x >> y >> z;
         d[x][y] = min(d[x][y], z);
         //注意保存最小的边
     }
     floyd();
-    while(k--) {
+    while (k--) {
         cin >> x >> y;
-        if(d[x][y] > INF/2) puts("impossible");
+        if (d[x][y] > INF / 2) puts("impossible");
             //由于有负权边存在所以约大过INF/2也很合理
         else cout << d[x][y] << endl;
     }
     return 0;
 }
 
-作者：郡呈
-        链接：https://www.acwing.com/solution/content/6976/
-来源：AcWing
-        著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
